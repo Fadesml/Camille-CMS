@@ -33,11 +33,6 @@ public class Template {
     private String html;
 
     /**
-     * Example of model
-     */
-    private String model;
-
-    /**
      * Core css >> Template css >> Component css >> Page css
      */
     private String css;

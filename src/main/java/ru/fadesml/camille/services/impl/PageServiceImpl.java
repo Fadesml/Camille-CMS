@@ -10,6 +10,7 @@ import ru.fadesml.camille.repository.PageRepository;
 import ru.fadesml.camille.services.PageService;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -27,12 +28,12 @@ class PageServiceImpl implements PageService {
 
     @Override
     public Page getPage(Long id) {
-        return repository.findById(id).orElseThrow(() -> new NotFoundException(Page.class, id.toString()));
+        return repository.findById(id).orElseThrow(() -> new NotFoundException(Page.class, Map.of("id", id)));
     }
 
     @Override
     public Page getPage(String path) {
-        return repository.findByPath(path).orElseThrow(() -> new NotFoundException(Page.class, path));
+        return repository.findByPath(path).orElseThrow(() -> new NotFoundException(Page.class, Map.of("path", path)));
     }
 
     public String getPageHtml(Long id) {

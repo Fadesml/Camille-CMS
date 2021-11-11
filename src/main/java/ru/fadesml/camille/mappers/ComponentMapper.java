@@ -2,6 +2,8 @@ package ru.fadesml.camille.mappers;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.mustachejava.MustacheFactory;
+import com.samskivert.mustache.Mustache;
 import lombok.SneakyThrows;
 import org.mapstruct.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,9 @@ import java.util.Map;
 public abstract class ComponentMapper {
     @Autowired
     protected ObjectMapper objectMapper;
+
+    @Autowired
+    protected MustacheFactory mustacheFactory;
 
     protected String toHtml(Collection<Component> components) {
         ArrayList<Component> componentList = new ArrayList<>(components);
@@ -36,7 +41,7 @@ public abstract class ComponentMapper {
         String html = component.getTemplate().getHtml();
 
         for (Map.Entry<String, String> entry : model.entrySet()) {
-            html = html.replace("{{ " + entry.getKey() + " }}", entry.getValue());
+            html = html.replace("{{" + entry.getKey() + "}}", entry.getValue());
         }
 
         return html;

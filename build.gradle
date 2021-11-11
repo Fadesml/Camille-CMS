@@ -25,17 +25,18 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-mail'
     implementation 'org.springframework.boot:spring-boot-starter-mustache'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'com.github.spullara.mustache.java:compiler:0.9.10'
+    implementation 'com.j2html:j2html:1.3.0'
     implementation 'com.vladmihalcea:hibernate-types-52:1.0.0'
     implementation "org.mapstruct:mapstruct:1.4.2.Final"
+    implementation "org.flywaydb:flyway-core:8.0.2"
+    implementation 'org.postgresql:postgresql:42.3.1'
 
     //dev
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
     //compile
     compileOnly 'org.projectlombok:lombok'
-
-    //runtime
-    runtimeOnly 'mysql:mysql-connector-java'
 
     //annotation processors
     annotationProcessor 'org.projectlombok:lombok'
